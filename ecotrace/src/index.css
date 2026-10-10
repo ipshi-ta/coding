@@ -1,0 +1,7 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+body{@apply font-body bg-cream text-forest}
+h1,h2,h3{@apply font-display}
+.card{@apply rounded-2xl bg-white p-6 shadow-sm border border-sage/30 transition hover:shadow-lg hover:-translate-y-0.5}
+.btn{@apply inline-flex items-center gap-2 rounded-full bg-emerald px-5 py-2.5 font-label font-medium text-white transition hover:bg-forest disabled:opacity-50}
+.btn-alt{@apply inline-flex items-center gap-2 rounded-full border border-emerald px-5 py-2.5 font-label font-medium text-emerald transition hover:bg-emerald hover:text-white}
+.input{@apply rounded-xl border border-sage/60 bg-white px-4 py-2 font-label outline-none focus:border-emerald}
