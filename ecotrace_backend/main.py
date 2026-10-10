@@ -42,11 +42,15 @@ CATALOG = {
     "battery": ("hazardous", False, "Take to an authorised battery collection point; never compost.", "Consider rechargeable batteries where suitable."),
     "electronic_waste": ("e-waste", False, "Use an authorised e-waste collection facility.", "Repair or extend device life where possible."),
     "sanitary_waste": ("sanitary", False, "Wrap and dispose according to local sanitary-waste rules.", "Follow local hygiene and disposal guidance."),
-}
+}app = FastAPI(title="EcoTrace API", version="0.1.0")
 
-app = FastAPI(title="EcoTrace API", version="0.1.0")
-origins = [s.strip() for s in os.getenv("ECOTRACE_CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",") if s.strip()]
-app.add_middleware(CORSMiddleware, allow_origins=origins, allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class ConfirmIn(BaseModel):
     item: str
